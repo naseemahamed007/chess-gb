@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nas Matrix Chess Arena</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#020617);
+color:white;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
+position:fixed;
+width:100%;
+z-index:1000;
+}
+
+nav h1{
+font-size:26px;
+font-weight:700;
+color:#38bdf8;
+}
+
+nav a{
+margin-left:25px;
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+animation:fadeIn 2s ease;
+}
+
+.hero h2{
+font-size:60px;
+background:linear-gradient(90deg,#38bdf8,#818cf8);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero p{
+margin-top:15px;
+font-size:18px;
+max-width:700px;
+line-height:1.6;
+}
+
+/* BUTTON */
+
+.btn{
+margin-top:30px;
+padding:14px 30px;
+background:#38bdf8;
+border:none;
+border-radius:8px;
+font-size:18px;
+color:black;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.1);
+background:#0ea5e9;
+}
+
+/* TOURNAMENT SECTION */
+
+.section{
+padding:100px 20px;
+text-align:center;
+}
+
+.section h2{
+font-size:40px;
+margin-bottom:40px;
+}
+
+.card{
+max-width:500px;
+margin:auto;
+padding:40px;
+background:rgba(255,255,255,0.05);
+border-radius:15px;
+box-shadow:0 0 40px rgba(0,0,0,0.6);
+transition:0.4s;
+animation:float 4s infinite ease-in-out;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+}
+
+.card h3{
+font-size:26px;
+margin-bottom:20px;
+}
+
+.card p{
+margin:8px 0;
+font-size:18px;
+}
+
+/* CONTACT */
+
+.contact{
+background:#020617;
+padding:80px 20px;
+text-align:center;
+}
+
+.contact a{
+display:block;
+margin-top:15px;
+font-size:18px;
+color:#38bdf8;
+text-decoration:none;
+}
+
+.contact a:hover{
+text-decoration:underline;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:25px;
+background:black;
+font-size:14px;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0px);}
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<h1>Nas Matrix Chess</h1>
+
+<div>
+<a href="#home">Home</a>
+<a href="#tournaments">Tournaments</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+
+
+<section class="hero" id="home">
+
+<h2>Nas Matrix Chess Arena</h2>
+
+<p>
+A competitive chess association dedicated to discovering rising talents and organizing high quality tournaments for players around the world.
+</p>
+
+<p>
+Led by Chief Director <b>Naseem Ahamed</b>, Nas Matrix Chess Arena promotes strategic excellence and global chess participation.
+</p>
+
+<button class="btn" onclick="scrollToTournament()">View Tournament</button>
+
+</section>
+
+
+<section class="section" id="tournaments">
+
+<h2>Upcoming Tournament</h2>
+
+<div class="card">
+
+<h3>Chess Open Chess Tournament</h3>
+
+<p><b>Date:</b> 28 March 2026</p>
+<p><b>Mode:</b> Online</p>
+<p><b>Platform:</b> Chess.com</p>
+<p><b>Format:</b> Rapid</p>
+
+<button class="btn" onclick="register()">Register Now</button>
+
+</div>
+
+</section>
+
+
+<section class="contact" id="contact">
+
+<h2>Contact Us</h2>
+
+<p>For inquiries or updates follow us below.</p>
+
+<a href="https://instagram.com/YOUR_INSTAGRAM">Instagram</a>
+
+<a href="mailto:yourmail@email.com">yourmail@email.com</a>
+
+</section>
+
+
+<footer>
+
+Nas Matrix Chess Arena © 2026  
+Chief Director: Naseem Ahamed
+
+</footer>
+
+
+<script>
+
+function register(){
+window.location.href="YOUR_GOOGLE_FORM_LINK";
+}
+
+function scrollToTournament(){
+document.getElementById("tournaments").scrollIntoView({behavior:"smooth"});
+}
+
+</script>
+
+</body>
+</html>
