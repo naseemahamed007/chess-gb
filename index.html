@@ -5,11 +5,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nas Matrix Chess </title>
+<title>Nas Matrix Chess</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+
+html{
+scroll-behavior:smooth;
+}
 
 *{
 margin:0;
@@ -35,12 +39,14 @@ position:fixed;
 width:100%;
 z-index:1000;
 background:rgba(0,0,0,0.4);
-backdrop-filter:blur(10px);
+backdrop-filter:blur(12px);
+transition:0.4s;
 }
 
 nav h1{
 font-size:28px;
 font-weight:700;
+letter-spacing:1px;
 }
 
 nav a{
@@ -49,10 +55,22 @@ text-decoration:none;
 margin-left:30px;
 font-size:17px;
 transition:0.3s;
+position:relative;
 }
 
-nav a:hover{
-color:#ffcc00;
+nav a:after{
+content:"";
+position:absolute;
+width:0%;
+height:2px;
+background:#ffcc00;
+left:0;
+bottom:-4px;
+transition:0.3s;
+}
+
+nav a:hover:after{
+width:100%;
 }
 
 /* HERO */
@@ -65,13 +83,26 @@ align-items:center;
 justify-content:center;
 text-align:center;
 padding:20px;
+position:relative;
+}
+
+.hero:before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
 }
 
 .hero-box{
-background:rgba(0,0,0,0.6);
+position:relative;
+background:rgba(0,0,0,0.5);
 padding:60px;
 border-radius:20px;
-backdrop-filter:blur(10px);
+backdrop-filter:blur(12px);
+animation:float 5s ease-in-out infinite;
 }
 
 .hero h2{
@@ -85,6 +116,8 @@ max-width:600px;
 margin:auto;
 }
 
+/* BUTTON */
+
 .btn{
 margin-top:30px;
 padding:14px 30px;
@@ -93,14 +126,15 @@ border:none;
 border-radius:10px;
 font-size:18px;
 cursor:pointer;
-transition:0.3s;
+transition:0.35s;
 }
 
 .btn:hover{
 transform:scale(1.1);
+box-shadow:0 0 20px #ffcc00;
 }
 
-/* TOURNAMENT */
+/* SECTION */
 
 .section{
 padding:120px 20px;
@@ -113,6 +147,8 @@ font-size:42px;
 margin-bottom:50px;
 }
 
+/* CARD */
+
 .card{
 max-width:550px;
 margin:auto;
@@ -122,10 +158,18 @@ background:rgba(255,255,255,0.05);
 backdrop-filter:blur(10px);
 box-shadow:0 20px 40px rgba(0,0,0,0.6);
 transition:0.4s;
+opacity:0;
+transform:translateY(40px);
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
 }
 
 .card:hover{
-transform:translateY(-10px);
+transform:translateY(-12px) scale(1.02);
+box-shadow:0 30px 60px rgba(0,0,0,0.8);
 }
 
 .card img{
@@ -150,10 +194,22 @@ margin:5px 0;
 padding:100px 20px;
 background:url("https://images.unsplash.com/photo-1604948501466-4e9c339b9c24") center/cover;
 text-align:center;
+position:relative;
+}
+
+.contact:before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background:rgba(0,0,0,0.7);
 }
 
 .contact-box{
-background:rgba(0,0,0,0.7);
+position:relative;
+background:rgba(0,0,0,0.6);
 padding:40px;
 border-radius:20px;
 display:inline-block;
@@ -165,12 +221,27 @@ margin-top:10px;
 color:#ffcc00;
 font-size:18px;
 text-decoration:none;
+transition:0.3s;
 }
+
+.contact a:hover{
+transform:translateX(6px);
+}
+
+/* FOOTER */
 
 footer{
 padding:25px;
 text-align:center;
 background:black;
+}
+
+/* FLOAT ANIMATION */
+
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0px);}
 }
 
 </style>
@@ -220,7 +291,7 @@ Chief Director: Naseem Ahamed
 
 <h2>Upcoming Tournament</h2>
 
-<div class="card">
+<div class="card fade">
 
 <img src="https://images.unsplash.com/photo-1611195974226-a6a9be9dd763">
 
@@ -275,6 +346,20 @@ document.getElementById("tournament").scrollIntoView({
 behavior:"smooth"
 });
 }
+
+/* SCROLL ANIMATION */
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+document.querySelectorAll(".card").forEach(el=>{
+observer.observe(el);
+});
 
 </script>
 
