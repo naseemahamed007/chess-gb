@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nas Matrix Chess Arena</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
@@ -13,11 +15,11 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:Poppins;
 }
 
 body{
-background:linear-gradient(135deg,#0f172a,#020617);
+background:#0a0a0a;
 color:white;
 overflow-x:hidden;
 }
@@ -28,167 +30,156 @@ nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 60px;
-background:rgba(0,0,0,0.5);
-backdrop-filter:blur(10px);
+padding:25px 60px;
 position:fixed;
 width:100%;
 z-index:1000;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
 }
 
 nav h1{
-font-size:26px;
+font-size:28px;
 font-weight:700;
-color:#38bdf8;
 }
 
 nav a{
-margin-left:25px;
-text-decoration:none;
 color:white;
-font-weight:500;
+text-decoration:none;
+margin-left:30px;
+font-size:17px;
 transition:0.3s;
 }
 
 nav a:hover{
-color:#38bdf8;
+color:#ffcc00;
 }
 
 /* HERO */
 
 .hero{
 height:100vh;
+background:url("https://images.unsplash.com/photo-1586165368502-1bad197a6461") center/cover no-repeat;
 display:flex;
-flex-direction:column;
-justify-content:center;
 align-items:center;
+justify-content:center;
 text-align:center;
 padding:20px;
-animation:fadeIn 2s ease;
+}
+
+.hero-box{
+background:rgba(0,0,0,0.6);
+padding:60px;
+border-radius:20px;
+backdrop-filter:blur(10px);
 }
 
 .hero h2{
 font-size:60px;
-background:linear-gradient(90deg,#38bdf8,#818cf8);
--webkit-background-clip:text;
-color:transparent;
+margin-bottom:10px;
 }
 
 .hero p{
-margin-top:15px;
 font-size:18px;
-max-width:700px;
-line-height:1.6;
+max-width:600px;
+margin:auto;
 }
-
-/* BUTTON */
 
 .btn{
 margin-top:30px;
 padding:14px 30px;
-background:#38bdf8;
+background:#ffcc00;
 border:none;
-border-radius:8px;
+border-radius:10px;
 font-size:18px;
-color:black;
 cursor:pointer;
 transition:0.3s;
 }
 
 .btn:hover{
 transform:scale(1.1);
-background:#0ea5e9;
 }
 
-/* TOURNAMENT SECTION */
+/* TOURNAMENT */
 
 .section{
-padding:100px 20px;
+padding:120px 20px;
 text-align:center;
+background:#111;
 }
 
 .section h2{
-font-size:40px;
-margin-bottom:40px;
+font-size:42px;
+margin-bottom:50px;
 }
 
 .card{
-max-width:500px;
+max-width:550px;
 margin:auto;
 padding:40px;
+border-radius:20px;
 background:rgba(255,255,255,0.05);
-border-radius:15px;
-box-shadow:0 0 40px rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
 transition:0.4s;
-animation:float 4s infinite ease-in-out;
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.03);
+transform:translateY(-10px);
 }
 
-.card h3{
-font-size:26px;
+.card img{
+width:100%;
+border-radius:12px;
 margin-bottom:20px;
 }
 
+.card h3{
+font-size:28px;
+margin-bottom:15px;
+}
+
 .card p{
-margin:8px 0;
 font-size:18px;
+margin:5px 0;
 }
 
 /* CONTACT */
 
 .contact{
-background:#020617;
-padding:80px 20px;
+padding:100px 20px;
+background:url("https://images.unsplash.com/photo-1604948501466-4e9c339b9c24") center/cover;
 text-align:center;
+}
+
+.contact-box{
+background:rgba(0,0,0,0.7);
+padding:40px;
+border-radius:20px;
+display:inline-block;
 }
 
 .contact a{
 display:block;
-margin-top:15px;
+margin-top:10px;
+color:#ffcc00;
 font-size:18px;
-color:#38bdf8;
 text-decoration:none;
 }
 
-.contact a:hover{
-text-decoration:underline;
-}
-
-/* FOOTER */
-
 footer{
-text-align:center;
 padding:25px;
+text-align:center;
 background:black;
-font-size:14px;
-}
-
-/* ANIMATIONS */
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(30px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@keyframes float{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-10px);}
-100%{transform:translateY(0px);}
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <nav>
 
@@ -196,7 +187,7 @@ transform:translateY(0);
 
 <div>
 <a href="#home">Home</a>
-<a href="#tournaments">Tournaments</a>
+<a href="#tournament">Tournament</a>
 <a href="#contact">Contact</a>
 </div>
 
@@ -205,26 +196,33 @@ transform:translateY(0);
 
 <section class="hero" id="home">
 
+<div class="hero-box">
+
 <h2>Nas Matrix Chess Arena</h2>
 
 <p>
-A competitive chess association dedicated to discovering rising talents and organizing high quality tournaments for players around the world.
+A global chess association focused on discovering talented players and organizing exciting online competitions.
 </p>
 
 <p>
-Led by Chief Director <b>Naseem Ahamed</b>, Nas Matrix Chess Arena promotes strategic excellence and global chess participation.
+Chief Director: Naseem Ahamed
 </p>
 
-<button class="btn" onclick="scrollToTournament()">View Tournament</button>
+<button class="btn" onclick="scrollTournament()">View Tournament</button>
+
+</div>
 
 </section>
 
 
-<section class="section" id="tournaments">
+
+<section class="section" id="tournament">
 
 <h2>Upcoming Tournament</h2>
 
 <div class="card">
+
+<img src="https://images.unsplash.com/photo-1611195974226-a6a9be9dd763">
 
 <h3>Chess Open Chess Tournament</h3>
 
@@ -240,23 +238,28 @@ Led by Chief Director <b>Naseem Ahamed</b>, Nas Matrix Chess Arena promotes stra
 </section>
 
 
+
 <section class="contact" id="contact">
+
+<div class="contact-box">
 
 <h2>Contact Us</h2>
 
-<p>For inquiries or updates follow us below.</p>
+<p>Follow our chess community</p>
 
-<a href="https://instagram.com/YOUR_INSTAGRAM">Instagram</a>
+<a href="https://www.instagram.com/nasmatrixchess/?hl=en">Instagram</a>
 
-<a href="mailto:yourmail@email.com">yourmail@email.com</a>
+<a href="mailto:Naseemishere0@gmail.com">YOUREMAIL@gmail.com</a>
+
+</div>
 
 </section>
 
 
+
 <footer>
 
-Nas Matrix Chess Arena © 2026  
-Chief Director: Naseem Ahamed
+Nas Matrix Chess Arena © 2026
 
 </footer>
 
@@ -264,14 +267,17 @@ Chief Director: Naseem Ahamed
 <script>
 
 function register(){
-window.location.href="YOUR_GOOGLE_FORM_LINK";
+window.location.href="https://docs.google.com/forms/d/e/1FAIpQLSd8FKhx8SFzMnJxrstoErtyNfKMJm92otwC7DTpr3LsaFmCnw/viewform?usp=dialog";
 }
 
-function scrollToTournament(){
-document.getElementById("tournaments").scrollIntoView({behavior:"smooth"});
+function scrollTournament(){
+document.getElementById("tournament").scrollIntoView({
+behavior:"smooth"
+});
 }
 
 </script>
+
 
 </body>
 </html>
