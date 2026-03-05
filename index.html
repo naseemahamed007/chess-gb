@@ -178,14 +178,50 @@ border-radius:12px;
 margin-bottom:20px;
 }
 
-.card h3{
-font-size:28px;
-margin-bottom:15px;
+/* MANAGEMENT TEAM */
+
+.team-container{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:40px;
+flex-wrap:wrap;
 }
 
-.card p{
-font-size:18px;
-margin:5px 0;
+.team-card{
+width:260px;
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+padding:30px;
+text-align:center;
+backdrop-filter:blur(10px);
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
+transition:0.4s;
+opacity:0;
+transform:translateY(40px);
+}
+
+.team-card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.team-card:hover{
+transform:translateY(-12px) scale(1.03);
+}
+
+.team-card img{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:15px;
+border:3px solid #ffcc00;
+}
+
+.role{
+color:#ffcc00;
+font-weight:600;
 }
 
 /* CONTACT */
@@ -236,7 +272,7 @@ text-align:center;
 background:black;
 }
 
-/* FLOAT ANIMATION */
+/* FLOAT */
 
 @keyframes float{
 0%{transform:translateY(0px);}
@@ -245,12 +281,10 @@ background:black;
 }
 
 </style>
-
 </head>
 
 
 <body>
-
 
 <nav>
 
@@ -259,6 +293,7 @@ background:black;
 <div>
 <a href="#home">Home</a>
 <a href="#tournament">Tournament</a>
+<a href="#management">Management</a>
 <a href="#contact">Contact</a>
 </div>
 
@@ -291,7 +326,7 @@ Chief Director: Naseem Ahamed
 
 <h2>Upcoming Tournament</h2>
 
-<div class="card fade">
+<div class="card">
 
 <img src="https://images.unsplash.com/photo-1611195974226-a6a9be9dd763">
 
@@ -303,6 +338,32 @@ Chief Director: Naseem Ahamed
 <p><b>Format:</b> Rapid</p>
 
 <button class="btn" onclick="register()">Register Now</button>
+
+</div>
+
+</section>
+
+
+
+<section class="section" id="management">
+
+<h2>Management Team</h2>
+
+<div class="team-container">
+
+<div class="team-card">
+
+<img src="https://images.unsplash.com/photo-1603415526960-f8f0c4cde5e1">
+
+<h3>Naseem Ahamed</h3>
+
+<p class="role">Director</p>
+
+<p>Arena International Master</p>
+
+<p>Director of Nas Matrix Chess</p>
+
+</div>
 
 </div>
 
@@ -327,11 +388,8 @@ Chief Director: Naseem Ahamed
 </section>
 
 
-
 <footer>
-
 Nas Matrix Chess Arena © 2026
-
 </footer>
 
 
@@ -357,12 +415,11 @@ entry.target.classList.add("show");
 });
 });
 
-document.querySelectorAll(".card").forEach(el=>{
+document.querySelectorAll(".card, .team-card").forEach(el=>{
 observer.observe(el);
 });
 
 </script>
-
 
 </body>
 </html>
